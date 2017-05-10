@@ -1,4 +1,4 @@
-Proyecto 2: BancaTEC
+#Proyecto 2: BancaTEC
 
 Aplicacion web con HTML5 y AngularJS
 Integrantes:
