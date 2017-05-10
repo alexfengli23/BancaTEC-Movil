@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/pHID"
+        android:layout_width="80dp"
+        android:layout_height="31dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/pHDate"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_weight="0.43"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/pHAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:layout_weight="0.35"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/pHPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_weight="0.43"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/pHDesc"
+        android:layout_width="80dp"
+        android:layout_height="31dp"
+        android:layout_weight="1"
+        android:text="TextView" />
+
+</LinearLayout>
