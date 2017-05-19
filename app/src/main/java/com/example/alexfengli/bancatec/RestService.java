@@ -12,7 +12,7 @@ import retrofit.converter.GsonConverter;
  */
 
 public class RestService {
-    private static String URL = "";
+    private static String URL = "http://proyecto2bancatec.azurewebsites.net/api";
     private retrofit.RestAdapter restAdapter;
     private InstituteService apiService;
 
