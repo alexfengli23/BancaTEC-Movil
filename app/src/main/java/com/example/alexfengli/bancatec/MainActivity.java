@@ -1,5 +1,6 @@
 package com.example.alexfengli.bancatec;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,18 +13,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    TextView name;
+    String userID;
+    RestService service;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
+        service = new RestService();
+        final Intent intent = getIntent();
+        userID = intent.getStringExtra("Cedula");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -32,7 +42,25 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View hView = navigationView.getHeaderView(0);
+        name = (TextView)hView.findViewById(R.id.userName);
         navigationView.setNavigationItemSelectedListener(this);
+
+        service.getService().getClient(userID, new Callback<ClientDTO>() {
+            @Override
+            public void success(ClientDTO clientDTO, Response response) {
+                name.setText(clientDTO.getNombre() + " " + clientDTO.getApellido1() + " " + clientDTO.getApellido2());
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+
+
     }
 
     @Override
@@ -74,7 +102,19 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.movement) {
-            // Handle the camera action
+            service.getService().getClient(userID, new Callback<ClientDTO>() {
+                @Override
+                public void success(ClientDTO clientDTO, Response response) {
+                    Intent myIntent = new Intent(MainActivity.this,AccountListViewAcitivity.class);
+                    myIntent.putExtra("Cedula",userID);
+                    MainActivity.this.startActivity(myIntent);
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Toast.makeText(MainActivity.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
+                }
+            });
 
         }//Cardlist es lista de tarjetas debitos
         else if (id == R.id.cardList) {

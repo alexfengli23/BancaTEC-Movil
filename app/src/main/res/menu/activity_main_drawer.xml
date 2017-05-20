@@ -7,9 +7,6 @@
                 android:id="@+id/movement"
                 android:title="Movimiento de cuentas" />
             <item
-                android:id="@+id/cardList"
-                android:title="Lista de tarjetas débitos" />
-            <item
                 android:id="@+id/transaction"
                 android:title="Realizar transferencia" />
         </menu>
