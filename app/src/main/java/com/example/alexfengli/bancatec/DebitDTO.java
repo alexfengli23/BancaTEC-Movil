@@ -5,13 +5,13 @@ package com.example.alexfengli.bancatec;
  */
 
 public class DebitDTO {
-    public String numerodetarjeta,numerodecuenta;
+    public String numero_tarjeta,numero_cuenta;
     public CardDTO tarjeta;
     public AccountDTO cuenta;
 
     public DebitDTO(String numerodetarjeta, String numerodecuenta, CardDTO tarjeta, AccountDTO cuenta) {
-        this.numerodetarjeta = numerodetarjeta;
-        this.numerodecuenta = numerodecuenta;
+        this.numero_tarjeta = numerodetarjeta;
+        this.numero_cuenta = numerodecuenta;
         this.tarjeta = tarjeta;
         this.cuenta = cuenta;
     }

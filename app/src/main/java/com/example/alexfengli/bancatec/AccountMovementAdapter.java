@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by Alex Feng Li on 5/19/2017.
+ * Created by Alex on 5/21/2017.
  */
 
-class AccountListAdapter extends BaseAdapter{
+public class AccountMovementAdapter extends BaseAdapter {
     public ArrayList<HashMap<String,String>> list;
     Activity activity;
     TextView txtFirst,txtSecond,txtThird,txtFourth;
-    public AccountListAdapter(Activity activity,ArrayList<HashMap<String, String>> list){
+    public AccountMovementAdapter(Activity activity,ArrayList<HashMap<String, String>> list){
         super();
         this.activity=activity;
         this.list=list;
@@ -51,12 +51,12 @@ class AccountListAdapter extends BaseAdapter{
 
         if(convertView == null){
 
-            convertView=inflater.inflate(R.layout.view_account_entry, null);
+            convertView=inflater.inflate(R.layout.account_movement_entry, null);
 
-            txtFirst =(TextView) convertView.findViewById(R.id.AccountID);
-            txtSecond =(TextView) convertView.findViewById(R.id.AccountType);
-            txtThird =(TextView) convertView.findViewById(R.id.AccountCoin);
-            txtFourth = (TextView) convertView.findViewById(R.id.AccountFund);
+            txtFirst =(TextView) convertView.findViewById(R.id.accountDate);
+            txtSecond =(TextView) convertView.findViewById(R.id.accountOperation);
+            txtThird =(TextView) convertView.findViewById(R.id.accountMonto);
+            txtFourth = (TextView) convertView.findViewById(R.id.accountDesc);
 
 
         }

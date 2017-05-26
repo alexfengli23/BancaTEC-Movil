@@ -10,13 +10,13 @@ public class AccountDTO {
     public ClientDTO cliente;
     public int saldo;
 
-    public AccountDTO(String numero, String descripcion, String perteneciente, boolean endolares, boolean tipoahorro, boolean estado, ClientDTO cliente) {
+    public AccountDTO(String numero, String descripcion, String perteneciente, boolean endolares, boolean tipoahorro, boolean estado, ClientDTO cliente,int saldo) {
         this.numero = numero;
         this.descripcion = descripcion;
         this.perteneciente = perteneciente;
         this.endolares = endolares;
         this.tipoahorro = tipoahorro;
-       // this.saldo = saldo;
+        this.saldo = saldo;
         this.estado = estado;
         this.cliente = cliente;
     }

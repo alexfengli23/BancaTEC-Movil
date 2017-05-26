@@ -5,13 +5,12 @@ package com.example.alexfengli.bancatec;
  */
 
 public class ClientDTO {
-    public String cedula,usuario,contrasena,nombre,apellido1,apellido2;
+    public String cedula,contrasena,nombre,apellido1,apellido2;
     public int telefono, ingreso;
     public boolean juridico, estado;
 
-    public ClientDTO(String cedula, String usuario, String contrasena, String nombre, String apellido1, String apellido2, int telefono, int ingreso, boolean juridico, boolean estado) {
+    public ClientDTO(String cedula, String contrasena, String nombre, String apellido1, String apellido2, int telefono, int ingreso, boolean juridico, boolean estado) {
         this.cedula = cedula;
-        this.usuario = usuario;
         this.contrasena = contrasena;
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -30,13 +29,9 @@ public class ClientDTO {
         this.cedula = cedula;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
+
+
 
     public String getContrasena() {
         return contrasena;

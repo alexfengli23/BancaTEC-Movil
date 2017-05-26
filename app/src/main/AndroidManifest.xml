@@ -28,7 +28,10 @@
         <activity android:name=".TransferActivity" />
         <activity android:name=".PurchaseListActivity" />
         <activity android:name=".AccountListViewAcitivity" />
-        <activity android:name=".DebitCardListActivity"></activity>
+        <activity android:name=".DebitCardListActivity" />
+        <activity android:name=".AccountMovementActivity" />
+        <activity android:name=".PagoTarjetaActivity" />
+        <activity android:name=".PagoOrdinarioActivity"></activity>
     </application>
 
 </manifest>

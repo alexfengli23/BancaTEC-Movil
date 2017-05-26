@@ -117,10 +117,11 @@ public class MainActivity extends AppCompatActivity
             });
 
         }//Cardlist es lista de tarjetas debitos
-        else if (id == R.id.cardList) {
 
-        }//Card es pago de tarjetas
         else if (id == R.id.card) {
+            Intent myIntent = new Intent(MainActivity.this,PagoTarjetaActivity.class);
+            myIntent.putExtra("Cedula",userID);
+            MainActivity.this.startActivity(myIntent);
 
         }//History es lista de compras de una tarjeta credito
         else if (id == R.id.history) {
@@ -129,11 +130,21 @@ public class MainActivity extends AppCompatActivity
         else if (id == R.id.paymentNormal) {
 
         }//Pago de prestamo Extra
-        else if (id == R.id.paymentExtra) {
 
-        }//Tranferencia
         else if (id == R.id.transaction) {
+            service.getService().getClient(userID, new Callback<ClientDTO>() {
+                @Override
+                public void success(ClientDTO clientDTO, Response response) {
+                    Intent myIntent = new Intent(MainActivity.this,TransferActivity.class);
+                    myIntent.putExtra("Cedula",userID);
+                    MainActivity.this.startActivity(myIntent);
+                }
 
+                @Override
+                public void failure(RetrofitError error) {
+                    Toast.makeText(MainActivity.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
+                }
+            });
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
