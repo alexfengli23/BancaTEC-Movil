@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 LoginDTO login = new LoginDTO(userName.getText().toString(),password.getText().toString());
-               service.getService().login(0, login, new Callback<ClientDTO>() {
+               service.getService().login(login, new Callback<ClientDTO>() {
                    @Override
                    public void success(ClientDTO clientDTO, Response response) {
                        Intent myIntent = new Intent(LoginActivity.this,MainActivity.class);

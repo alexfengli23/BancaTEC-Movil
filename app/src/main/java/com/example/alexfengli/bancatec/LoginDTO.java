@@ -5,19 +5,19 @@ package com.example.alexfengli.bancatec;
  */
 
 public class LoginDTO {
-    String usuario, contrasena;
+    String cedula, contrasena;
 
     public LoginDTO(String usuario, String contraseña) {
-        this.usuario = usuario;
+        this.cedula = usuario;
         this.contrasena = contraseña;
     }
 
     public String getUsuario() {
-        return usuario;
+        return cedula;
     }
 
     public void setUsuario(String usuario) {
-        this.usuario = usuario;
+        this.cedula = usuario;
     }
 
     public String getContrasena() {

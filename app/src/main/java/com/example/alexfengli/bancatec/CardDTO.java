@@ -11,6 +11,8 @@ public class CardDTO {
     public boolean tipo,estado;
     public int cvv;
     public Date fechaexpira;
+    public ClientDTO cliente_tarjeta;
+
 
     public CardDTO(String numero, String perteneciente, boolean tipo, boolean estado, int cvv, Date fechaexpira) {
         this.numero = numero;
@@ -19,5 +21,15 @@ public class CardDTO {
         this.estado = estado;
         this.cvv = cvv;
         this.fechaexpira = fechaexpira;
+    }
+
+    public CardDTO(String numero, String perteneciente, boolean tipo, boolean estado, int cvv, Date fechaexpira, ClientDTO cliente_tarjeta) {
+        this.numero = numero;
+        this.perteneciente = perteneciente;
+        this.tipo = tipo;
+        this.estado = estado;
+        this.cvv = cvv;
+        this.fechaexpira = fechaexpira;
+        this.cliente_tarjeta = cliente_tarjeta;
     }
 }

@@ -11,7 +11,6 @@ public class ClientDTO {
 
     public ClientDTO(String cedula, String usuario, String contrasena, String nombre, String apellido1, String apellido2, int telefono, int ingreso, boolean juridico, boolean estado) {
         this.cedula = cedula;
-        this.usuario = usuario;
         this.contrasena = contrasena;
         this.nombre = nombre;
         this.apellido1 = apellido1;

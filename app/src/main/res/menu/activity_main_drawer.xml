@@ -25,10 +25,7 @@
         <menu>
             <item
                 android:id="@+id/paymentNormal"
-                android:title="Pago Normal" />
-            <item
-                android:id="@+id/paymentExtra"
-                android:title="Pago Extraordinario" />
+                android:title="Pago Ordinario" />
         </menu>
     </item>
 

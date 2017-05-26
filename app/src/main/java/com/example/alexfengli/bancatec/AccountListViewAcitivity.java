@@ -21,19 +21,27 @@ import retrofit.client.Response;
 public class AccountListViewAcitivity extends AppCompatActivity {
     String user;
     RestService service;
-    Button close;
+    Button close,refresh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_list_view_acitivity);
         final Intent intent = getIntent();
         user = intent.getStringExtra("Cedula");
-        close = (Button)findViewById(R.id.bCancelAccountsView);
+        close = (Button)findViewById(R.id.bRefreshAccount);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
+        });
+        refresh = (Button)findViewById(R.id.bCancelAccountsView);
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(getIntent());
+                            }
         });
         service = new RestService();
         //0refresh();
@@ -47,15 +55,15 @@ public class AccountListViewAcitivity extends AppCompatActivity {
                 {
 
                     HashMap<String,String> temp=new HashMap<String, String>();
-                    temp.put("first",accountDTOs.get(i).getNumero());
-                    if(accountDTOs.get(i).isTipoahorro())
+                    temp.put("first",accountDTOs.get(i).numeroCuenta);
+                    if(accountDTOs.get(i).tipoCuenta)
                     {
                         temp.put("second","Ahorro");
                     }
                     else{
                         temp.put("second","Corriente");
                     }
-                    if(accountDTOs.get(i).isEndolares())
+                    if(accountDTOs.get(i).endolares)
                     {
                         temp.put("third","Dolar");
                     }
@@ -63,7 +71,7 @@ public class AccountListViewAcitivity extends AppCompatActivity {
                     {
                         temp.put("third","colon");
                     }
-                    // temp.put("fourth",String.valueOf(accountDTOs.get(i).getSaldo()));
+                     temp.put("fourth",String.valueOf(accountDTOs.get(i).saldo));
                     accounts.add(temp);
                 }
                 accountList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -72,7 +80,7 @@ public class AccountListViewAcitivity extends AppCompatActivity {
                         TextView result = (TextView)view.findViewById(R.id.AccountID);
                         String accountNumber = result.getText().toString();
                         //new intent
-                        Intent myIntent = new Intent(getApplicationContext(),DebitCardListActivity.class);
+                        Intent myIntent = new Intent(getApplicationContext(),AccountMovementActivity.class);
                         myIntent.putExtra("numero",accountNumber);
                         startActivity(myIntent);
                     }
@@ -91,9 +99,5 @@ public class AccountListViewAcitivity extends AppCompatActivity {
 
     }
 
-    private void refresh()
-    {
 
-
-    }
 }

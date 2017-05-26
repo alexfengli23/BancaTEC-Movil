@@ -7,64 +7,11 @@ import java.sql.Date;
  */
 
 public class MovementHistoryDto {
-    int id,amount;
-    Date date;
-    String operation,description,place;
+    public int operacion,tipo;
+    public Date date;
+    public DetalleOperacion detalleOperacion;
+    public AccountDTO cuenta;
+    public String numeroCuenta;
 
-    public MovementHistoryDto(int id, int amount, Date date, String operation, String description, String place) {
-        this.id = id;
-        this.amount = amount;
-        this.date = date;
-        this.operation = operation;
-        this.description = description;
-        this.place = place;
-    }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getOperation() {
-        return operation;
-    }
-
-    public void setOperation(String operation) {
-        this.operation = operation;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getPlace() {
-        return place;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
-    }
 }

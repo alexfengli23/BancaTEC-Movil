@@ -16,12 +16,39 @@ import retrofit.http.Query;
  */
 
 public interface InstituteService {
-    @POST("/Login/{id}")
-    public void login(@Path("id") int operator,@Body LoginDTO loginData, Callback<ClientDTO> callback);
+    @POST("/Login/2")
+    public void login(@Body LoginDTO loginData, Callback<ClientDTO> callback);
     @GET("/Client/{id}")
     public void getClient(@Path("id") String id, Callback<ClientDTO> callback);
     @GET("/Account")
     public void getAccountsClient(@Query("cedula") String id, Callback<List<AccountDTO>> callback);
-    @GET("/Debit_C_?IdCuenta={IdCuenta}")
-    public void getTarjetasDeCuenta(@Path("Idcuenta")String id, Callback<List<DebitDTO>> callback);
+    @GET("/Debit_C_")
+    public void getTarjetasDeCuenta(@Query("Idcuenta") String id, Callback<List<DebitDTO>> callback);
+    @POST("/Account?op=1")
+    public void transfer(@Body TransferDTO data,Callback<TransferDTO> callback);
+    @GET("/Account")
+    public void getAccountMovement(@Query("numeroCuenta") String id,Callback<List<MovimientoCuentaDTO>> callback);
+    @GET("/Loan")
+    public void pagoPrestamo(@Query("idPrestamo") int idPrestamo,@Query("monto") int monto,Callback<List<String>> callback);
+    @POST("/Credit_C_")
+    public void pagoTarjetaCredito(@Query("numeroTarjeta") String id, Callback<String> callback);
+    @GET("/Credit_C_")
+    public void getListaTarjetaCredito(@Query("cedulaCliente") String id,Callback<List<CreditDTO>> callback);
+    @GET("/Account/{id}")
+    public void getCuenta(@Path("id") String id,Callback<AccountDTO> callback);
+    @GET("/Credit_C_/{id}")
+    public void getTarjetaCredito(@Path("id") String id,Callback<CreditDTO> callback);
+    @GET("/Credit_C_")
+    public void getTarjetasPendientes(@Query("cedula") String id, Callback<List<CreditDTO>> callback);
+    @POST("/Credit_C_")
+    public void pagarTarjetaPendiente(@Query("numeroTarjeta") String id,Callback<String> callback);
+    @POST("/Account")
+    public void operacionCuenta(@Body AccountOperationDTO data,@Query("accion") boolean operation,Callback<String> callback);
+    @GET("/Loan")
+    public void getPrestamoActivo(@Query("CedulaCliente") String cedula, Callback<List<String>> callback);
+    @GET("/Loan")
+    public void getCalendarioPrestamo(@Query("IdPrestamo") int id,Callback<List<CalendarioDTO>>callback);
+
+
+
 }
